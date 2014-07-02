@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+  before_filter :confirm_logged_in
+
   def create
     review = Review.find_by_id(params[:id]) || not_found
 

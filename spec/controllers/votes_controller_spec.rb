@@ -27,6 +27,14 @@ RSpec.describe VotesController, :type => :controller do
         expect(response).to redirect_to '/'
       end
     end
+
+    context 'when logged out' do
+      it 'is forbidden' do
+        post :create, post_id: 1
+
+        expect(response).to_not be_ok
+      end
+    end
   end
 
 end
