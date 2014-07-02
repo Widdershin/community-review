@@ -16,12 +16,12 @@
     <div id="reviews">
         <% @reviews.each do |review| %>
             <div class="review">
-                <% if current_user %>
-                    <span class="valign-middle small-margin">
+                <span class="valign-middle small-margin">
+                    <% if current_user %>
                         <i class="icon-up-open center"></i>
-                        <span class="valign-middle small-text"><%= review.score %> points</span>
-                    </span>
-                <% end %>
+                    <% end %>
+                    <span class="valign-middle small-text"><%= review.score %> points</span>
+                </span>
                 <span class="small-margin big-text valign-middle"><%= review.name %></span>
             </div>
         <% end %>
