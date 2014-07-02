@@ -4,3 +4,10 @@
 <% else %>
     <p><a href='/auth/reddit'>Log in with Reddit</a> to vote and suggest reviews</p>
 <% end %>
+
+<h2>Reviews</h2>
+<ul>
+    <% @reviews.each do |review| %>
+        <li><%= review.name %></li>
+    <% end %>
+</ul>
