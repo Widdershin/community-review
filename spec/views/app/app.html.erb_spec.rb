@@ -23,4 +23,11 @@ RSpec.describe "app/app.html.erb", :type => :view do
       expect(response).to have_selector('form[action="/reviews"]')
     end
   end
+
+  context 'when logged out' do
+    it 'does not show the suggest a review form' do
+      render
+      expect(response).to_not have_selector('form[action="/reviews"]')
+    end
+  end
 end

@@ -1,13 +1,13 @@
 <h1>/r/longboarding Suggested Community Reviews</h1>
 <% if current_user %>
     <p>Logged in as <%= current_user %></p>
+
+    <%= form_tag('/reviews', method: "post") do %>
+        <%= text_field_tag(:name) %>
+        <%= submit_tag("Suggest") %>
+    <% end %>
 <% else %>
     <p><a href='/auth/reddit'>Log in with Reddit</a> to vote and suggest reviews</p>
-<% end %>
-
-<%= form_tag('/reviews', method: "post") do %>
-    <%= text_field_tag(:name) %>
-    <%= submit_tag("Suggest") %>
 <% end %>
 
 <h2>Reviews</h2>
