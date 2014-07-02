@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   def to_s
     username
   end
+
+  def vote_for_review review
+    reviews_voted_for << review
+  end
 end

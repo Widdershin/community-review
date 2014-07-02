@@ -27,4 +27,10 @@ describe User, :type => :model do
   it 'gives username as a string representation' do
     expect(user.to_s).to eq user.username
   end
+
+  it 'votes for reviews' do
+    review = build :review
+    user.vote_for_review review
+    expect(user.reviews_voted_for).to include review
+  end
 end
