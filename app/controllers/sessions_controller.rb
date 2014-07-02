@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
   def create
     user = User.find_or_create_from_auth_hash(auth_hash)
-    AuthenticationService.login user
+    login user
+  end
+
+  def login user
+    session[:user_id] = user.id
   end
 
 private

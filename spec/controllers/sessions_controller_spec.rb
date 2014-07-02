@@ -3,11 +3,10 @@ require 'rails_helper'
 describe SessionsController, :type => :controller do
 
   describe "GET 'create'" do
-    let (:user) { double :user }
+    let (:user) { double :user, id: 1 }
 
     before do
       allow(User).to receive(:find_or_create_from_auth_hash).and_return user
-      allow(AuthenticationService).to receive(:login)
     end
 
 
@@ -22,8 +21,8 @@ describe SessionsController, :type => :controller do
     end
 
     it 'logs that user in' do
-      expect(AuthenticationService).to receive(:login).with user
       get 'create'
+      expect(session[:user_id]).to eq user.id
     end
   end
 
