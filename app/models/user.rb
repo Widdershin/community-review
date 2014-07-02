@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   def self.find_or_create_from_auth_hash auth_hash
     username = auth_hash[:info][:name]
-    create username: username
+
+    existing_user = find_by_username username
+
+    existing_user or create username: username
   end
 end
