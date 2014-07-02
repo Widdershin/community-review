@@ -23,4 +23,8 @@ describe User, :type => :model do
     allow(User).to receive(:find_by_username).with('Widdershiny').and_return user
     expect(User.find_or_create_from_auth_hash auth_hash).to eq user
   end
+
+  it 'gives username as a string representation' do
+    expect(user.to_s).to eq user.username
+  end
 end

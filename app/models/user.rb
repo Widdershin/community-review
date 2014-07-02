@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
 
     existing_user or create username: username
   end
+
+  def to_s
+    username
+  end
 end
