@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_filter :confirm_logged_in, only: [:create]
+
   def create
     review = Review.create(name: params[:name])
 
