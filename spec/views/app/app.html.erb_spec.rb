@@ -8,8 +8,14 @@ RSpec.describe "app/app.html.erb", :type => :view do
     render
   end
 
-  it 'renders reviews' do
-    expect(rendered).to include review.name
+  describe 'reviews' do
+    it 'displays the name' do
+      expect(rendered).to include review.name
+    end
+
+    it 'displays the score' do
+      expect(rendered).to include review.score.to_s
+    end
   end
 
   context 'when logged in' do
