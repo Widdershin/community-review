@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
   def vote_for_review review
     reviews_voted_for << review
   end
+
+  def upvoted? review
+    reviews_voted_for.exists? review.id
+  end
 end

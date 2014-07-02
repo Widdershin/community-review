@@ -15,12 +15,12 @@
     <h2>Suggested Reviews</h2>
     <div id="reviews">
         <% @reviews.each do |review| %>
-            <div class="review">
+            <div class="review" data-id="<%= review.id %>">
                 <span class="valign-middle small-margin">
                     <% if current_user %>
-                        <i class="icon-up-open center"></i>
+                        <i class="upvote icon-up-open center <% if false %>upvoted<% end %>"></i>
                     <% end %>
-                    <span class="valign-middle small-text"><%= review.score %> points</span>
+                    <span class="valign-middle small-text"><%= review.score %> point(s)</span>
                 </span>
                 <span class="small-margin big-text valign-middle"><%= review.name %></span>
             </div>
