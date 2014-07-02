@@ -18,15 +18,39 @@ body
 {
     background-color: #F7F7F7;
     text-align: left;
-    padding: 5px 5px;
+    padding: 10px;
     margin: 15px auto;
-    border-radius: 3px;
+    border-radius: 5px;
     max-width: 75%;
     border: 1px solid #C4C4C4;
     box-shadow: 1px 1px 2px #7A7A7A;
+    min-height: 40px;
 }
 
 .small-margin
 {
-    margin: 5px;
+    margin: 15px;
+}
+
+.big-text
+{
+    font-size: 24pt;
+}
+
+.small-text
+{
+    font-size: 12px;
+}
+
+.valign-middle
+{
+    vertical-align:middle;
+    line-height: 40px;
+}
+
+.center
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
