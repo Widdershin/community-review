@@ -1,3 +1,6 @@
 <h1>/r/longboarding Suggested Community Reviews</h1>
-<p>Find me in app/views/app/app.html.erb</p>
-<%= current_user %>
+<% if current_user %>
+    <p>Logged in as <%= current_user %></p>
+<% else %>
+    <p><a href='/auth/reddit'>Log in with Reddit</a> to vote and suggest reviews</p>
+<% end %>
