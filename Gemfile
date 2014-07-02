@@ -34,6 +34,8 @@ gem 'omniauth'
 gem 'omniauth-reddit', :git => 'git://github.com/jackdempsey/omniauth-reddit.git'
 
 gem 'shoulda-matchers', group: :test
+
+gem 'json_expressions'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
