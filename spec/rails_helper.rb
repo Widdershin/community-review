@@ -40,6 +40,7 @@ RSpec.configure do |config|
   end
 
   config.include IntegrationSpecHelper, :type => :feature
+  config.include LoginHelper
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
