@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'json'
 
 RSpec.describe ReviewsController, :type => :controller do
   describe 'GET show' do
@@ -28,14 +29,14 @@ RSpec.describe ReviewsController, :type => :controller do
     end
 
     it 'creates a review' do
-      expect(Review).to receive(:create).with(params)
+      expect(Review).to receive(:create).with(name: params[:name])
 
       post :create, params
     end
 
     context 'params sent as json' do
       it 'responds with json' do
-        post :create, params, { "CONTENT_TYPE" => "application/json" }
+        post :create, format: :json, **params
 
         expected_json = {
           review: {
@@ -46,6 +47,14 @@ RSpec.describe ReviewsController, :type => :controller do
         }
 
         expect(response.body).to match_json_expression expected_json
+      end
+    end
+
+    context 'params sent form encoded' do
+      it 'redirects to the homepage' do
+        post :create, params
+
+        expect(response).to redirect_to '/'
       end
     end
   end

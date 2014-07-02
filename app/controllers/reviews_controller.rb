@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
   def create
-    render json: Review.create(name: params[:name])
+    review = Review.create(name: params[:name])
+
+    respond_to do |format|
+      format.html { redirect_to '/' }
+      format.json { render json: review }
+    end
   end
 
   def show
