@@ -10,4 +10,14 @@ RSpec.describe Review, :type => :model do
   it 'has a score equal to the number of votes it has' do
     expect(review.score).to eq review.voted_for_by.size
   end
+
+  it 'has a hash representation' do
+    expected_hash = {
+      name: review.name,
+      score: review.score,
+      id: review.id
+    }
+
+    expect(review.to_hash).to eq expected_hash
+  end
 end

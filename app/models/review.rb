@@ -6,4 +6,12 @@ class Review < ActiveRecord::Base
   def score
     voted_for_by.length
   end
+
+  def to_hash
+    {
+      name: name,
+      score: score,
+      id: id
+    }
+  end
 end
