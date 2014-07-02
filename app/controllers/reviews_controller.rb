@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def create
+    render json: Review.create(name: params[:name])
   end
 
   def show

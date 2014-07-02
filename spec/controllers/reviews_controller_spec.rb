@@ -17,4 +17,16 @@ RSpec.describe ReviewsController, :type => :controller do
       expect(response.body).to match_json_expression expected_json
     end
   end
+
+  describe 'POST create' do
+    it 'creates a review' do
+      user = build(:user)
+      allow(controller).to receive(:current_user).and_return user
+      params = {name: 'test review'}
+
+      expect(Review).to receive(:create).with(params)
+
+      post :create, params
+    end
+  end
 end
