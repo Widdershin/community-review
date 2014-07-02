@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :user do
-    reddit_key "fake"
+    username "Widdershiny"
   end
 end
