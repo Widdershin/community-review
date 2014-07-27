@@ -18,11 +18,17 @@
             <div class="review" data-id="<%= review.id %>">
                 <span class="valign-middle small-margin">
                     <% if current_user %>
-                        <i class="upvote icon-up-open center <% if false %>upvoted<% end %>"></i>
+                        <i class="upvote icon-up-open center
+                                  <% if false %>upvoted<% end %>">
+                        </i>
                     <% end %>
-                    <span class="valign-middle small-text"><%= review.score %> point(s)</span>
+                    <span class="valign-middle small-text">
+                        <%= review.score %> point(s)
+                    </span>
                 </span>
-                <span class="small-margin big-text valign-middle"><%= review.name %></span>
+                <span class="small-margin big-text valign-middle">
+                    <%= review.name %>
+                </span>
             </div>
         <% end %>
     </div>
