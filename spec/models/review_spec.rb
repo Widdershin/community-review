@@ -21,4 +21,5 @@ RSpec.describe Review, :type => :model do
 
     expect(review.to_hash).to eq expected_hash
   end
+
 end

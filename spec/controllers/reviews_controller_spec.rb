@@ -9,7 +9,7 @@ RSpec.describe ReviewsController, :type => :controller do
           score: 5,
           id: 1
       }
-      review = double(:review, to_hash: review_hash)
+      review = double(:review, to_hash: review_hash, score: 5)
       allow(Review).to receive(:all).and_return [review]
       expected_json = { reviews: [review_hash] }
 

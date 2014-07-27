@@ -11,7 +11,7 @@ RSpec.describe AppController, :type => :controller do
 
     it "displays reviews" do
       review = build(:review)
-      allow(Review).to receive(:all).and_return [build(:review)]
+      allow(Review).to receive(:by_score).and_return [build(:review)]
 
       get 'app'
       expect(response.body).to include review.name

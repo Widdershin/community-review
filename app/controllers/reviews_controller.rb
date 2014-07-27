@@ -11,6 +11,6 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    render json: Review.all
+    render json: Review.by_score
   end
 end
