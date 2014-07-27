@@ -34,4 +34,12 @@ describe User, :type => :model do
     user.vote_for_review review
     expect(user.reviews_voted_for).to include review
   end
+
+  it 'cannot vote for the same review twice' do
+    review = create :review
+
+    user.vote_for_review review
+
+    expect { user.vote_for_review review }.to raise_error
+  end
 end
