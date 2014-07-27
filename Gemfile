@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem "active_model_serializers"
 
+gem 'google-analytics-rails'
+
 group :production do
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 end
