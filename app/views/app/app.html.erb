@@ -13,6 +13,9 @@
     <% end %>
 
     <h2>Suggested Reviews</h2>
+    <p>
+        Suggest and vote for community reviews to be posted on /r/longboarding. Voting here is entirely separate from Reddit, and is just used to show support for popular suggestions.
+    </p>
     <div id="reviews">
         <% @reviews.each do |review| %>
             <div class="review" data-id="<%= review.id %>">
