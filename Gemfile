@@ -28,6 +28,7 @@ gem "active_model_serializers"
 
 group :test do
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'poltergeist'
 end
 

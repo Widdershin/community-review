@@ -10,7 +10,7 @@ RSpec.describe AppController, :type => :controller do
     end
 
     it "displays reviews" do
-      allow(Review).to receive(:all).and_return([double(:review, name: 'testBlag', score: 0)])
+      allow(Review).to receive(:all).and_return([double(:review, name: 'testBlag', score: 0, id: 1)])
 
       get 'app'
       expect(response.body).to include 'testBlag'

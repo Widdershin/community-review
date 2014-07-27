@@ -6,6 +6,8 @@ require 'rspec/rails'
 require 'shoulda/matchers'
 require 'json_expressions/rspec'
 require 'capybara/rspec'
+require 'capybara-screenshot'
+require 'capybara-screenshot/rspec'
 require 'capybara/poltergeist'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -22,7 +24,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 Capybara.javascript_driver = :poltergeist
-
+Capybara::Screenshot.autosave_on_failure = false
 
 RSpec.configure do |config|
   config.deprecation_stream = 'log/deprecations.log'
