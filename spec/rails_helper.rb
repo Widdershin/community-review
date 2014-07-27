@@ -1,3 +1,4 @@
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
@@ -6,7 +7,10 @@ require 'rspec/rails'
 require 'shoulda/matchers'
 require 'json_expressions/rspec'
 require 'capybara/rspec'
+require 'capybara-screenshot'
+require 'capybara-screenshot/rspec'
 require 'capybara/poltergeist'
+require 'database_cleaner'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -22,7 +26,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 Capybara.javascript_driver = :poltergeist
-
+Capybara::Screenshot.autosave_on_failure = false
 
 RSpec.configure do |config|
   config.deprecation_stream = 'log/deprecations.log'
@@ -37,6 +41,14 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     FactoryGirl.lint
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
 
   config.include IntegrationSpecHelper, :type => :feature

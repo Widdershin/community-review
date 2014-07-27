@@ -1,5 +1,5 @@
 class AppController < ApplicationController
   def app
-    @reviews = Review.all
+    @reviews = Review.by_score
   end
 end

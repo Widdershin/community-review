@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.describe VotesController, :type => :controller do
   describe 'POST "create"' do
-    let(:review) { double :review, id: 1 }
+
+    let(:test_id) { 1 }
+    let(:review) { double :review, id: test_id }
 
     before do
-      allow(Review).to receive(:find_by_id).and_return(review)
+      allow(Review).to receive(:find_by_id).with(test_id.to_s).and_return review
     end
 
     context 'when logged in' do
@@ -18,11 +20,11 @@ RSpec.describe VotesController, :type => :controller do
       it 'votes for the given post' do
         expect(@user).to receive(:vote_for_review).with(review)
 
-        post :create, post_id: 1
+        post :create, id: test_id
       end
 
       it 'redirects to the homepage' do
-        post :create, post_id: 1
+        post :create, id: test_id
 
         expect(response).to redirect_to '/'
       end
@@ -30,7 +32,7 @@ RSpec.describe VotesController, :type => :controller do
 
     context 'when logged out' do
       it 'is forbidden' do
-        post :create, post_id: 1
+        post :create, id: test_id
 
         expect(response).to_not be_ok
       end

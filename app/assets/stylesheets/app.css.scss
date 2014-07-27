@@ -12,6 +12,7 @@ body
 {
     text-align: center;
     background-color: #E8E8E8;
+    font-family: 'Raleway', sans-serif;
 }
 
 .review
@@ -48,9 +49,19 @@ body
     line-height: 40px;
 }
 
+.align-right
+{
+    float:right;
+}
+
 .center
 {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.upvoted
+{
+    color: red;
 }

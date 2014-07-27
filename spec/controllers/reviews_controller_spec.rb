@@ -9,7 +9,7 @@ RSpec.describe ReviewsController, :type => :controller do
           score: 5,
           id: 1
       }
-      review = double(:review, to_hash: review_hash)
+      review = double(:review, to_hash: review_hash, score: 5)
       allow(Review).to receive(:all).and_return [review]
       expected_json = { reviews: [review_hash] }
 
@@ -21,7 +21,7 @@ RSpec.describe ReviewsController, :type => :controller do
 
   describe 'POST create' do
     context 'when logged in' do
-      let(:user) { build :user }
+      let(:user) { create :user }
       let(:params) { { name: 'test review' } }
 
       before do
@@ -30,7 +30,7 @@ RSpec.describe ReviewsController, :type => :controller do
       end
 
       it 'creates a review' do
-        expect(Review).to receive(:create).with(name: params[:name])
+        expect(user.reviews).to receive(:create).with(name: params[:name])
 
         post :create, params
       end

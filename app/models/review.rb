@@ -3,6 +3,8 @@ class Review < ActiveRecord::Base
   has_many :review_votes
   has_many :voted_for_by, through: :review_votes, source: :user
 
+  belongs_to :user
+
   def score
     voted_for_by.length
   end
@@ -13,5 +15,9 @@ class Review < ActiveRecord::Base
       score: score,
       id: id
     }
+  end
+
+  def self.by_score
+    all.sort_by(&:score).reverse
   end
 end
