@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
 
   def vote_for_review review
     reviews_voted_for << review
+
+    save!
   end
 
   def upvoted? review
