@@ -16,4 +16,8 @@ class Review < ActiveRecord::Base
       id: id
     }
   end
+
+  def self.by_score
+    all.sort_by(&:score).reverse
+  end
 end
