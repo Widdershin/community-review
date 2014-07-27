@@ -13,6 +13,9 @@
     <% end %>
 
     <h2>Suggested Reviews</h2>
+    <p>
+        Suggest and vote for community reviews to be posted on /r/longboarding. Voting here is entirely separate from Reddit, and is just used to show support for popular suggestions.
+    </p>
     <div id="reviews">
         <% @reviews.each do |review| %>
             <div class="review" data-id="<%= review.id %>">
@@ -35,5 +38,7 @@
             </div>
         <% end %>
     </div>
+
+    <footer>Made by <%= link_to("Widdershin", "http://widdersh.in") %>. This website is <%= link_to("open source", "https://github.com/Widdershin/community-review" ) %> and contributions are welcomed. If you have any questions, comments or concerns, <%= link_to("get in touch", "mailto:ncwjohnstone+reviews@gmail.com") %>. </footer>
 
 </div>
