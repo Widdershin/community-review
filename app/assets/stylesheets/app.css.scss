@@ -1,0 +1,67 @@
+// Place all the styles related to the App controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container
+{
+    max-width: 750px;
+    margin: auto;
+}
+
+body
+{
+    text-align: center;
+    background-color: #E8E8E8;
+    font-family: 'Raleway', sans-serif;
+}
+
+.review
+{
+    background-color: #F7F7F7;
+    text-align: left;
+    padding: 10px;
+    margin: 15px auto;
+    border-radius: 5px;
+    max-width: 75%;
+    border: 1px solid #C4C4C4;
+    box-shadow: 1px 1px 2px #7A7A7A;
+    min-height: 40px;
+}
+
+.small-margin
+{
+    margin: 15px;
+}
+
+.big-text
+{
+    font-size: 24pt;
+}
+
+.small-text
+{
+    font-size: 12px;
+}
+
+.valign-middle
+{
+    vertical-align:middle;
+    line-height: 40px;
+}
+
+.align-right
+{
+    float:right;
+}
+
+.center
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.upvoted
+{
+    color: red;
+}
