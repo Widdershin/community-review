@@ -21,7 +21,7 @@ RSpec.describe ReviewsController, :type => :controller do
 
   describe 'POST create' do
     context 'when logged in' do
-      let(:user) { build :user }
+      let(:user) { create :user }
       let(:params) { { name: 'test review' } }
 
       before do
@@ -30,7 +30,7 @@ RSpec.describe ReviewsController, :type => :controller do
       end
 
       it 'creates a review' do
-        expect(Review).to receive(:create).with(name: params[:name])
+        expect(user.reviews).to receive(:create).with(name: params[:name])
 
         post :create, params
       end

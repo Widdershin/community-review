@@ -30,6 +30,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 gem "factory_girl_rails", "~> 4.0"

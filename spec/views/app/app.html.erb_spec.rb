@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "app/app.html.erb", :type => :view do
-  let (:review) { build(:review) }
+  let (:review) { create(:review) }
 
   before do
     assign(:reviews, [review])
@@ -15,6 +15,10 @@ RSpec.describe "app/app.html.erb", :type => :view do
 
     it 'displays the score' do
       expect(rendered).to include review.score.to_s
+    end
+
+    it 'displays the owner' do
+      expect(rendered).to include review.user.username
     end
   end
 

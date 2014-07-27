@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_filter :confirm_logged_in, only: [:create]
 
   def create
-    review = Review.create(name: params[:name])
+    review = current_user.reviews.create(name: params[:name])
 
     respond_to do |format|
       format.html { redirect_to '/' }

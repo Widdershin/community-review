@@ -4,6 +4,7 @@ describe User, :type => :model do
   it { should validate_presence_of :username }
   it { should have_many :review_votes }
   it { should have_many :reviews_voted_for}
+  it { should have_many :reviews }
 
   let (:user) { build :user }
   let (:auth_hash) do
