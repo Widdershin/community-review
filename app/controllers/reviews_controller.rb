@@ -11,6 +11,18 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    render json: Review.by_score
+    render json: Review.all
+  end
+
+  def update
+    if params[:key] != Secret.key
+      return render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+    end
+
+    review = Review.find_by_id params[:id] || not_found
+
+    review.update!(params.permit(:submitted))
+
+    render json: review
   end
 end

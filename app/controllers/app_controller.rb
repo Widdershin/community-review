@@ -1,5 +1,6 @@
 class AppController < ApplicationController
   def app
-    @reviews = Review.by_score
+    @suggested_reviews = Review.by_score
+    @posted_reviews = Review.posted
   end
 end

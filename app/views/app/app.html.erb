@@ -18,7 +18,7 @@
 
     <h2>Suggested Reviews</h2>
     <div id="reviews">
-        <% @reviews.each do |review| %>
+        <% @suggested_reviews.each do |review| %>
             <div class="review" data-id="<%= review.id %>">
                 <span class="valign-middle small-margin">
                     <% if current_user %>
@@ -29,6 +29,23 @@
                     <span class="valign-middle small-text">
                         <%= review.score %> point(s)
                     </span>
+                </span>
+                <span class="small-margin big-text valign-middle">
+                    <%= review.name %>
+                </span>
+                <span class="valign-middle align-right small-text">
+                    Suggested by <%= review.user %>
+                </span>
+            </div>
+        <% end %>
+    </div>
+
+    <h2>Posted Reviews</h2>
+    <div>
+        <% @posted_reviews.each do |review| %>
+            <div class="review" data-id="<%= review.id %>">
+                <span class="valign-middle small-text">
+                    <%= review.score %> point(s)
                 </span>
                 <span class="small-margin big-text valign-middle">
                     <%= review.name %>

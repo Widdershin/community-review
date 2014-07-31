@@ -13,11 +13,21 @@ class Review < ActiveRecord::Base
     {
       name: name,
       score: score,
-      id: id
+      id: id,
+      suggested_by: suggested_by,
+      submitted: submitted,
     }
   end
 
+  def suggested_by
+    user.username
+  end
+
   def self.by_score
-    all.sort_by(&:score).reverse
+    where(submitted: false).sort_by(&:score).reverse
+  end
+
+  def self.posted
+    where(submitted: true)
   end
 end
