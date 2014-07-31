@@ -70,4 +70,16 @@ RSpec.describe ReviewsController, :type => :controller do
       end
     end
   end
+
+  describe 'PATCH update' do
+    before do
+      allow(Secret).to receive(:key).and_return('bar')
+    end
+
+    it 'returns a 403 if you provide the wrong key' do
+      patch :update, key: 'foo'
+
+      expect(response).to be_forbidden
+    end
+  end
 end

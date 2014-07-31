@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resource :reviews, only: [:create, :show]
+  resource :reviews, only: [:create, :show, :update]
   resource :votes, only: [:create]
 
   get '/auth/reddit/callback', to: 'sessions#create'
