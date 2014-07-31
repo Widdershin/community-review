@@ -24,6 +24,10 @@ class Review < ActiveRecord::Base
   end
 
   def self.by_score
-    all.sort_by(&:score).reverse
+    where(submitted: false).sort_by(&:score).reverse
+  end
+
+  def self.posted
+    where(submitted: true)
   end
 end
