@@ -72,14 +72,24 @@ RSpec.describe ReviewsController, :type => :controller do
   end
 
   describe 'PATCH update' do
+    let (:review) { create :review }
+
     before do
       allow(Secret).to receive(:key).and_return('bar')
     end
 
     it 'returns a 403 if you provide the wrong key' do
-      patch :update, key: 'foo'
+      patch :update, key: 'foo', id: review.id, submitted: true
 
       expect(response).to be_forbidden
+    end
+
+    it 'updates the review' do
+      patch :update, key: 'bar', id: review.id, submitted: true
+
+      review.reload
+
+      expect(review.submitted).to be true
     end
   end
 end
