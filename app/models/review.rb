@@ -14,7 +14,8 @@ class Review < ActiveRecord::Base
       name: name,
       score: score,
       id: id,
-      suggested_by: suggested_by
+      suggested_by: suggested_by,
+      submitted: submitted,
     }
   end
 

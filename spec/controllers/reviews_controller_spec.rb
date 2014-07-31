@@ -45,7 +45,8 @@ RSpec.describe ReviewsController, :type => :controller do
               name: params[:name],
               id: Fixnum,
               score: Fixnum,
-              suggested_by: String
+              suggested_by: String,
+              submitted: wildcard_matcher,
             }
           }
 
