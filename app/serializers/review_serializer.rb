@@ -1,3 +1,3 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :name, :score
+  attributes :id, :name, :score, :suggested_by
 end

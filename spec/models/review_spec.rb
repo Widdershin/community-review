@@ -17,10 +17,14 @@ RSpec.describe Review, :type => :model do
       name: review.name,
       score: review.score,
       id: review.id,
-      suggested_by: review.user.username
+      suggested_by: review.suggested_by
     }
 
     expect(review.to_hash).to eq expected_hash
+  end
+
+  it 'has the username of the user who suggested it' do
+    expect(review.suggested_by).to eq review.user.username
   end
 
 end

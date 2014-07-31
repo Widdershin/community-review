@@ -14,8 +14,12 @@ class Review < ActiveRecord::Base
       name: name,
       score: score,
       id: id,
-      suggested_by: user.username,
+      suggested_by: suggested_by
     }
+  end
+
+  def suggested_by
+    user.username
   end
 
   def self.by_score

@@ -7,7 +7,8 @@ RSpec.describe ReviewsController, :type => :controller do
       review_hash = {
           name: 'test',
           score: 5,
-          id: 1
+          id: 1,
+          suggested_by: 'Widdershiny'
       }
       review = double(:review, to_hash: review_hash, score: 5)
       allow(Review).to receive(:all).and_return [review]
@@ -43,7 +44,8 @@ RSpec.describe ReviewsController, :type => :controller do
             review: {
               name: params[:name],
               id: Fixnum,
-              score: Fixnum
+              score: Fixnum,
+              suggested_by: String
             }
           }
 
