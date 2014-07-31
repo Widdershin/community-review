@@ -16,7 +16,8 @@ RSpec.describe Review, :type => :model do
     expected_hash = {
       name: review.name,
       score: review.score,
-      id: review.id
+      id: review.id,
+      suggested_by: review.user.username
     }
 
     expect(review.to_hash).to eq expected_hash

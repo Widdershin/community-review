@@ -13,7 +13,8 @@ class Review < ActiveRecord::Base
     {
       name: name,
       score: score,
-      id: id
+      id: id,
+      suggested_by: user.username,
     }
   end
 
