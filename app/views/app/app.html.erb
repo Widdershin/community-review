@@ -23,7 +23,7 @@
                 <span class="valign-middle small-margin">
                     <% if current_user %>
                         <i class="upvote icon-up-open center
-                                  <% if current_user.upvoted? review %>upvoted<% end %>">
+                                  <% if current_user.voted_up_for? review %>upvoted<% end %>">
                         </i>
                     <% end %>
                     <span class="valign-middle small-text">

@@ -2,11 +2,9 @@ require 'rails_helper'
 
 describe User, :type => :model do
   it { should validate_presence_of :username }
-  it { should have_many :review_votes }
-  it { should have_many :reviews_voted_for}
   it { should have_many :reviews }
 
-  let (:user) { build :user }
+  let (:user) { create :user }
   let (:auth_hash) do
     {
       info: {
@@ -30,16 +28,8 @@ describe User, :type => :model do
   end
 
   it 'votes for reviews' do
-    review = build :review
-    user.vote_for_review review
-    expect(user.reviews_voted_for).to include review
-  end
-
-  it 'cannot vote for the same review twice' do
     review = create :review
-
-    user.vote_for_review review
-
-    expect { user.vote_for_review review }.to raise_error
+    user.upvotes review
+    expect(user.find_up_voted_items).to include review
   end
 end

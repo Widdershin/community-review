@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
   validates :username, presence: true
 
-  has_many :review_votes
-  has_many :reviews_voted_for, through: :review_votes, source: :review
+  acts_as_voter
 
   has_many :reviews
 
@@ -19,12 +18,7 @@ class User < ActiveRecord::Base
   end
 
   def vote_for_review review
-    reviews_voted_for << review
-
+    up_votes review
     save!
-  end
-
-  def upvoted? review
-    reviews_voted_for.exists? review.id
   end
 end
