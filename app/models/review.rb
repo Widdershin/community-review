@@ -1,12 +1,19 @@
 class Review < ActiveRecord::Base
-  validates :name, presence: true
-  has_many :review_votes
-  has_many :voted_for_by, through: :review_votes, source: :user
+  acts_as_votable
 
+  validates :name, presence: true
   belongs_to :user
 
   def score
-    voted_for_by.length
+    upvotes - downvotes
+  end
+
+  def upvotes
+    votes_for.up.size
+  end
+
+  def downvotes
+    votes_for.down.size
   end
 
   def to_hash
