@@ -30,6 +30,8 @@ gem 'google-analytics-rails'
 
 gem 'newrelic_rpm'
 
+gem 'acts_as_votable', '~> 0.10.0'
+
 group :production do
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 end
