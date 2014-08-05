@@ -22,9 +22,8 @@
             <div class="review" data-id="<%= review.id %>">
                 <span class="valign-middle small-margin">
                     <% if current_user %>
-                        <i class="upvote icon-up-open center
-                                  <% if current_user.voted_up_for? review %>upvoted<% end %>">
-                        </i>
+                        <%= fa_icon "chevron-up", class: "upvote center" %>
+                        <%= fa_icon "chevron-down", class: "upvote center" %>
                     <% end %>
                     <span class="valign-middle small-text">
                         <%= review.score %> point(s)

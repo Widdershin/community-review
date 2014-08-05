@@ -32,6 +32,8 @@ gem 'newrelic_rpm'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem "font-awesome-rails"
+
 group :production do
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 end

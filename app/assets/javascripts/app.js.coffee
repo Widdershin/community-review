@@ -4,20 +4,18 @@
 
 $ ->
   $('.upvote').on 'click', ->
-    if $(this).hasClass('upvoted')
-      return
-
     reviewId = $(this).parents('.review').attr('data-id')
 
-    console.log(reviewId)
+    if $(this).hasClass('upvoted')
+      $(this).removeClass('upvoted')
+      $.delete '/votes', { id: reviewId }
+
 
     $.post('/votes', { id: reviewId })
 
     $pointText = $(this).next()
 
     points = parseInt $pointText.text().match(/\d+/)
-
-    console.log points
 
     $pointText.text((points + 1) + ' point(s)')
 
