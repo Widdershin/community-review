@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
 
     review = Review.find_by_id params[:id] || not_found
 
-    review.update!(params.permit(:submitted))
+    review.update_attributes!(params.permit(:submitted))
 
     render json: review
   end
