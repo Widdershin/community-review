@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_filter :confirm_logged_in, only: [:create]
+  protect_from_forgery except: :update
 
   def create
     review = current_user.reviews.create(name: params[:name])
