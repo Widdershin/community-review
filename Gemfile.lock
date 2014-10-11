@@ -1,15 +1,15 @@
 GIT
-  remote: git://github.com/heroku/rails_log_stdout.git
-  revision: f9a92758f2d5dca5a88bf899a83256302f16ab6c
-  specs:
-    rails_log_stdout (0.0.1)
-
-GIT
   remote: git://github.com/jackdempsey/omniauth-reddit.git
   revision: 893cb926432f9f1293179b506999dc2155435aef
   specs:
     omniauth-reddit (0.0.2)
       omniauth-oauth2 (~> 1.1)
+
+GIT
+  remote: git://github.com/heroku/rails_log_stdout.git
+  revision: f9a92758f2d5dca5a88bf899a83256302f16ab6c
+  specs:
+    rails_log_stdout (0.0.1)
 
 GEM
   remote: https://rubygems.org/
