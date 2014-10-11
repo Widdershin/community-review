@@ -87,6 +87,8 @@ RSpec.describe ReviewsController, :type => :controller do
     it 'updates the review' do
       patch :update, key: 'bar', id: review.id, submitted: true
 
+      expect(review.submitted).to be false
+
       review.reload
 
       expect(review.submitted).to be true

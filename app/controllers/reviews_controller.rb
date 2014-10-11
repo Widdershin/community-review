@@ -20,10 +20,6 @@ class ReviewsController < ApplicationController
       return render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
     end
 
-    review = Review.find_by_id params[:id] || not_found
-
-    review.update_attributes!(params.permit(:submitted))
-
-    render json: review
+    render json: Review.update(params[:id], submitted: params[:submitted])
   end
 end
