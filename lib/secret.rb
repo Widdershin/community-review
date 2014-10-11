@@ -1,5 +1,5 @@
 module Secret
   def self.key
-    ENV['autoposter_key']
+    ENV['AUTOPOSTER_KEY']
   end
 end
